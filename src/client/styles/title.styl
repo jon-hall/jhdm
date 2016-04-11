@@ -1,0 +1,60 @@
+@import url(\//fonts.googleapis.com/css?family=Jura)
+@import 'title-keyframes'
+
+// Support 2 collapsible elements for now
+$collapsibles-limit = 2
+
+.title
+    font-family Jura
+    font-size 40pt
+    padding 40px
+    cursor pointer
+
+    .collapsible-word
+        animation collapsible-head-out 0.5s 1s ease-out forwards
+
+        for i in 1..$collapsibles-limit
+            &:nth-child({3 - i}),&:nth-child({3 - i}) .collapsible-body
+                animation-delay ((i - 1) * 0.5s) + 1s
+
+    .collapsible-body
+        opacity $parts-opacity
+        animation collapsible-body-out 0.5s 1s ease-out forwards
+
+    .dot-wrap
+        display inline-block
+        overflow hidden
+        max-height $dot-window-height
+
+        .dot
+            position relative
+            display inline-block
+            opacity $parts-opacity
+            top $dot-bottom-position
+            animation dot-drop-out 0.5s 0.5s ease-out forwards
+
+    .tld
+        display inline-block
+        transform-origin 50% 80%
+        transform-style preserve-3d
+        perspective 600px
+        opacity $parts-opacity
+        animation me-flip-out 0.5s ease-out forwards
+
+    // On hover, set all the reverse animations (could do this with animation-direction: reverse, but safari...)
+    &:hover
+        .collapsible-word
+            animation collapsible-head 0.5s ease-out backwards
+
+            for i in 1..$collapsibles-limit
+                &:nth-child({i}),&:nth-child({i}) .collapsible-body
+                    animation-delay (i - 1) * 0.5s
+
+            .collapsible-body
+                animation collapsible-body 0.5s ease-out backwards
+
+        .dot
+            animation dot-drop 0.5s 1.1s ease-out backwards
+
+        .tld
+            animation me-flip 0.5s 1.6s ease-out backwards

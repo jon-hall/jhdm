@@ -1,4 +1,5 @@
 import React from 'react';
+import __style from '../styles/title.styl';
 const map = Array.prototype.map;
 
 export default class Title extends React.Component {
@@ -14,10 +15,7 @@ export default class Title extends React.Component {
 	render() {
         const collapsibles = this.props.collapsibles.map((word, i) =>
             (<span key={i} className="collapsible-word">
-                {
-                    map.call(word, (character, i2) =>
-                        (<span key={i2} className="collapsible-char">{character}</span>))
-                }
+                {word[0]}<span className="collapsible-body">{word.slice(1)}</span>
             </span>)
         );
 
