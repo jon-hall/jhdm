@@ -17,33 +17,18 @@ $dot-drop-timing = ease-out
 $tld-flip-timing = ease-out
 
 .title
-    font-family Jura
-    font-size 40pt
-    padding 40px
-    cursor pointer
-
-    .collapsible-word
-        animation collapsible-head-out $collapse-time $collapse-timing forwards
-
-        for i in 1..$collapsibles-count
-            &:nth-child({3 - i}),&:nth-child({3 - i}) .collapsible-body
-                animation-delay ((i - 1) * $collapse-time) + ($dot-drop-time + $tld-flip-time + $tld-flip-buffer + $dot-drop-buffer)
-
     .collapsible-body
         opacity $parts-opacity
-        animation collapsible-body-out $collapse-time $collapse-timing forwards
 
     .dot-wrap
         display inline-block
         overflow hidden
         max-height $dot-window-height
-
         .dot
             position relative
             display inline-block
-            opacity $parts-opacity
             top $dot-bottom-position
-            animation dot-drop-out $dot-drop-time ($tld-flip-time + $tld-flip-buffer) $dot-drop-timing forwards
+            opacity $parts-opacity
 
     .tld
         display inline-block
@@ -51,22 +36,39 @@ $tld-flip-timing = ease-out
         transform-style preserve-3d
         perspective 600px
         opacity $parts-opacity
-        animation tld-flip-out $tld-flip-time $tld-flip-timing forwards
 
-    // On hover, set all the reverse animations (could do this with animation-direction: reverse, but safari...)
-    &:hover
+    &.collapsed
         .collapsible-word
-            animation collapsible-head $collapse-time $collapse-timing backwards
+            animation collapsible-head-out $collapse-time $collapse-timing forwards
 
             for i in 1..$collapsibles-count
-                &:nth-child({i}),&:nth-child({i}) .collapsible-body
-                    animation-delay (i - 1) * $collapse-time
+                &:nth-child({3 - i}),&:nth-child({3 - i}) .collapsible-body
+                    animation-delay ((i - 1) * $collapse-time) + ($dot-drop-time + $tld-flip-time + $tld-flip-buffer + $dot-drop-buffer)
 
-            .collapsible-body
-                animation collapsible-body $collapse-time $collapse-timing backwards
+        .collapsible-body
+            animation collapsible-body-out $collapse-time $collapse-timing forwards
 
-        .dot
-            animation dot-drop $dot-drop-time (($collapsibles-count * $collapse-time) + $dot-drop-buffer) $dot-drop-timing backwards
+        .dot-wrap
+            .dot
+                animation dot-drop-out $dot-drop-time ($tld-flip-time + $tld-flip-buffer) $dot-drop-timing forwards
 
         .tld
-            animation tld-flip $tld-flip-time ($dot-drop-time + $tld-flip-buffer + $dot-drop-buffer + ($collapsibles-count * $collapse-time)) $tld-flip-timing backwards
+            animation tld-flip-out $tld-flip-time $tld-flip-timing forwards
+
+        // On hover, set all the reverse animations (could do this with animation-direction: reverse, but safari...)
+        &.hover-active:hover
+            .collapsible-word
+                animation collapsible-head $collapse-time $collapse-timing backwards
+
+                for i in 1..$collapsibles-count
+                    &:nth-child({i}),&:nth-child({i}) .collapsible-body
+                        animation-delay (i - 1) * $collapse-time
+
+                .collapsible-body
+                    animation collapsible-body $collapse-time $collapse-timing backwards
+
+            .dot
+                animation dot-drop $dot-drop-time (($collapsibles-count * $collapse-time) + $dot-drop-buffer) $dot-drop-timing backwards
+
+            .tld
+                animation tld-flip $tld-flip-time ($dot-drop-time + $tld-flip-buffer + $dot-drop-buffer + ($collapsibles-count * $collapse-time)) $tld-flip-timing backwards
