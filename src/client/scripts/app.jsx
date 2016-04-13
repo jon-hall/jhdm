@@ -13,15 +13,15 @@ export default class App extends React.Component {
 	}
 
 	componentDidMount() {
-		let baseDelay = 3000;
+		let baseDelay = 4000;
 
-		// Start the collapsed transition 2s after mounting
+		// Start the collapsed transition 4s after mounting
 		setTimeout(() => this.setState({ collapsed: true }), baseDelay);
 
-		// Start the title transition +2s after starting collapsing
-		setTimeout(() => this.setState({ focusTitle: false }), baseDelay + 2000);
+		// Start the title transition at same time
+		setTimeout(() => this.setState({ focusTitle: false }), baseDelay);
 
-		// Start the in-place state +2s after starting position transition
+		// Start the in-place state +2s after the others
 		setTimeout(() => this.setState({ hoverActive: true }), baseDelay + 2000);
 	}
 
