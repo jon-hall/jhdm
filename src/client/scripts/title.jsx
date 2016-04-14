@@ -4,10 +4,6 @@ import __style from '../styles/title.styl';
 const map = Array.prototype.map;
 
 export default class Title extends React.Component {
-    constructor() {
-        super();
-    }
-
     static propTypes = {
         collapsed: React.PropTypes.bool.isRequired,
         hoverActive: React.PropTypes.bool.isRequired,

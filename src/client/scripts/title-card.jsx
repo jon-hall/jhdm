@@ -5,10 +5,6 @@ import __style from '../styles/title-card.styl';
 const map = Array.prototype.map;
 
 export default class TitleCard extends React.Component {
-    constructor() {
-        super();
-    }
-
     static propTypes = {
         collapsed: React.PropTypes.bool.isRequired,
         focused: React.PropTypes.bool.isRequired
