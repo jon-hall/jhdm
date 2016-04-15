@@ -1,9 +1,13 @@
-import React from 'react';
-import classNames from 'classnames';
-import Title from './title.jsx';
-import __style from '../styles/title-card.styl';
-const map = Array.prototype.map;
 
+import React from 'react'
+import classNames from 'classnames'
+import Title from './title.jsx'
+/* eslint-disable no-unused-vars */
+import __style from '../styles/title-card.styl'
+/* eslint-enable no-unused-vars */
+
+// FIXME: Why indent broken when using babel parser?
+/* eslint-disable indent,react/jsx-indent */
 export default class TitleCard extends React.Component {
     static propTypes = {
         collapsed: React.PropTypes.bool.isRequired,
@@ -17,6 +21,7 @@ export default class TitleCard extends React.Component {
             collapsed: this.props.collapsed
         })}>
             <Title {...this.props} />
-        </div>);
+        </div>)
 	}
 }
+/* eslint-enable indent,react/jsx-indent */
