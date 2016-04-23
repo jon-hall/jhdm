@@ -1,0 +1,12 @@
+/**
+ * Coalesces a given property value against a series of objects, returning the first matched value,
+ * or null if none of the objects contain the property.
+ * @param  {String} prop    The property name to coalesce the values of.
+ * @param  {Object[]} objs... The objects to coalesce over.
+ * @return {any}         The first non-null property value, or null if not found.
+ */
+coalesce(prop, objs...)
+    $v = null
+    for obj in objs
+        $v = ($v == null) and (prop in obj) ? obj[prop] : $v
+    $v
