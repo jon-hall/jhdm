@@ -1,3 +1,1 @@
 ## jonhall.me
-
-WIP

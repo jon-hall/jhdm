@@ -14,14 +14,14 @@ export default class Title extends React.Component {
         tld: React.PropTypes.string.isRequired
     }
 
-	render() {
+    render() {
         const collapsibles = this.props.collapsibles.map((word, i) =>
             (<span key={i} className='collapsible-word'>
                 {word[0]}<span className='collapsible-body'>{word.slice(1)}</span>
             </span>)
         )
 
-		return <div className={classNames({
+	return <div className={classNames({
             'title': true,
             'hover-active': this.props.hoverActive,
             collapsed: this.props.collapsed
@@ -30,6 +30,6 @@ export default class Title extends React.Component {
             <span className='dot-wrap'><span className='dot'>.</span></span>
             <span className='tld'>{this.props.tld}</span>
         </div>
-	}
+    }
 }
 /* eslint-enable indent,react/jsx-indent */
