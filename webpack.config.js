@@ -7,7 +7,7 @@ module.exports = {
     entry: [
     'webpack-dev-server/client?http://0.0.0.0:8080',
     'webpack/hot/only-dev-server',
-    './src/client/scripts/index.jsx'
+    './src/client/index.jsx'
   ],
     devtool: process.env.WEBPACK_DEVTOOL || 'source-map',
     output: {
