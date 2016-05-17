@@ -8,11 +8,17 @@ import __style from '../app.styl'
 /* eslint-disable react/jsx-indent */
 export default class App extends React.Component {
     render() {
-        return (<div className={classNames({
-            app: true,
-            active: true,
-            'focus-title': true
-        })}></div>)
+        return <Scene>
+            <TitleBar>
+                <Title />
+                <SceneControl></SceneControl>
+            </TitleBar>
+            <Viewport>
+                <Surface>
+                    <Logo />
+                </Surface>
+            </Viewport>
+        </Scene>
     }
 }
 /* eslint-enable react/jsx-indent */
