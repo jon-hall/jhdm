@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path'),
-    webpack = require('webpack');
+    webpack = require('webpack')
 
 module.exports = {
     entry: [
@@ -85,4 +85,4 @@ module.exports = {
         use: [require('nib')()],
         import: ['~nib/lib/nib/index.styl']
     }
-};
+}
