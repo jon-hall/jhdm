@@ -1,6 +1,7 @@
 import React,  { cloneElement } from 'react'
 import SceneControl from '../scene-control/scene-control.jsx'
-import Viewport from '../viewport/viewport.jsx'
+import SceneControl from './scene-control.jsx'
+import Viewport from './viewport.jsx'
 
 export default class Scene extends React.Component {
     constructor() {
