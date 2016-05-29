@@ -9,13 +9,14 @@ import __style from '../app.styl'
 export default class App extends React.Component {
     render() {
         return <Scene>
-            <TitleBar>
-                <Title />
+            //<TitleBar>
+            //    <Title />
                 <SceneControl></SceneControl>
-            </TitleBar>
+            //</TitleBar>
             <Viewport>
                 <Surface>
-                    <Logo />
+                    Test
+                    //<Logo />
                 </Surface>
             </Viewport>
         </Scene>
