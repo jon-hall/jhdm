@@ -1,4 +1,35 @@
-html,body
-    height 100%
-    margin 0
-    padding 0
+.app
+    display flex
+    flex-direction column
+
+    .title-bar
+        display flex
+        align-items center
+
+        .menu
+            margin-left auto
+
+            .menu-item > a
+                padding 1em
+
+                &:hover
+                    background #f0f0f0
+
+    .content
+        > div
+            position relative
+            flex 1
+
+        .slide-enter
+            transform translateY(100%)
+            transition all .5s ease-in
+
+        .slide-enter.slide-enter-active
+            transform translateY(0)
+
+        .slide-leave
+            transform translateY(0)
+            transition all .5s ease-in
+
+        .slide-leave.slide-leave-active
+            transform translateY(100%)
