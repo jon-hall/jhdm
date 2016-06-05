@@ -27,7 +27,7 @@ export default class App extends React.Component {
 
             <ReactCSSTransitionGroup
                 component='div'
-                transitionName='slide'
+                transitionName='main-content'
                 className='content'
                 transitionEnterTimeout={500}
                 transitionLeaveTimeout={500}
