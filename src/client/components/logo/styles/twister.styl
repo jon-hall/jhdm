@@ -1,0 +1,33 @@
+// Unit fraction derivation - this splits 'fraction' between 'count' while accounting for 'overlap'
+// fraction = ((1 - overlap) * count * $unit-fraction) + ($unit-fraction * overlap)
+// => $unit-fraction * overlap = fraction - ((1 - overlap) * count * $unit-fraction)
+// => $unit-fraction * overlap = ((fraction / $unit-fraction) - ((1 - overlap) * count)) * $unit-fraction
+// => overlap = (fraction / $unit-fraction) - ((1 - overlap) * count)
+// => (fraction / $unit-fraction) = overlap + ((1 - overlap) * count)
+// => $unit-fraction = (fraction / (overlap + ((1 - overlap) * count)))
+delayed-rotate(name, count, fraction, overlap)
+    $unit-fraction = (fraction / (overlap + ((1 - overlap) * count)))
+    $unit-percent = $unit-fraction * 100%
+    @keyframes {name}
+        0%
+            transform rotateX(0deg)
+        {$unit-percent}
+            transform rotateX(-360deg)
+        100%
+            transform rotateX(-360deg)
+
+$duration = 4s
+$length = 10
+$fraction = 0.6
+$overlap = 0.96
+delayed-rotate('delayedrotate', $length, $fraction, $overlap)
+
+.twister
+    > span
+        display inline-block
+
+        for i in 1..$length
+            &:nth-child({i})
+                $unit-fraction = ($fraction / ($overlap + ((1 - $overlap) * $length)))
+                $per-unit-duration =  $duration * $unit-fraction * (1 - $overlap)
+                animation delayedrotate $duration ease-out ((i - 1) * $per-unit-duration) infinite
