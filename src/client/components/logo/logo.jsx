@@ -10,7 +10,7 @@ export default class App extends React.Component {
     constructor() {
         super()
 
-        const animations = []
+        const animations = ['twister', 'hover-ring']
         this.state = {
             animation: animations[Math.floor(animations.length * Math.random())]
         }
@@ -18,7 +18,7 @@ export default class App extends React.Component {
 
     render() {
         const letters = 'jonhall.me'.split('').map((char) =>
-            <span className='char'>{char}</span>)
+            <span className='logo-letter'>{char}</span>)
 
         return <div className='logo-wrap'>
             <div className={'logo ' + this.state.animation}>{letters}</div>
