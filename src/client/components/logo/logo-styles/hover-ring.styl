@@ -19,20 +19,21 @@ $radius = 200px
 $unit-width = 30px
 
 .hover-ring
-    position relative
-    transform-style preserve-3d
-    animation-name orbit, hover
-    animation-duration $duration, $duration
-    animation-timing-function linear, ease-in-out
-    animation-iteration-count infinite, infinite
+    > .logo
+        position relative
+        transform-style preserve-3d
+        animation-name orbit, hover
+        animation-duration $duration, $duration
+        animation-timing-function linear, ease-in-out
+        animation-iteration-count infinite, infinite
 
-    > .logo-letter
-        display inline-block
-        // Make each character a fixed width, so the transform origin calculation can work
-        position absolute
-        transition all 1s ease-out
+        > .logo-letter
+            display inline-block
+            // Make each character a fixed width, so the transform origin calculation can work
+            position absolute
+            transition all 1s ease-out
 
-        for i in 1..$length
-            &:nth-child({i})
-                $theta = PI * 2 * ((i - 1) / $length)
-                transform translateX(($radius * sin($theta))) translateZ($radius * cos($theta)) rotateY(unit($theta, 'rad'))
+            for i in 1..$length
+                &:nth-child({i})
+                    $theta = PI * 2 * ((i - 1) / $length)
+                    transform translateX(($radius * sin($theta))) translateZ($radius * cos($theta)) rotateY(unit($theta, 'rad'))

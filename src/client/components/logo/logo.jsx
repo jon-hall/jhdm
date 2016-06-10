@@ -20,8 +20,8 @@ export default class App extends React.Component {
         const letters = 'jonhall.me'.split('').map((char) =>
             <span className='logo-letter'>{char}</span>)
 
-        return <div className='logo-wrap'>
-            <div className={'logo ' + this.state.animation}>{letters}</div>
+        return <div className={'logo-wrap ' + this.state.animation}>
+            <div className='logo'>{letters}</div>
         </div>
     }
 }

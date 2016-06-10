@@ -23,11 +23,12 @@ $overlap = 0.96
 delayed-rotate('delayedrotate', $length, $fraction, $overlap)
 
 .twister
-    > .logo-letter
-        display inline-block
+    > .logo
+        > .logo-letter
+            display inline-block
 
-        for i in 1..$length
-            &:nth-child({i})
-                $unit-fraction = ($fraction / ($overlap + ((1 - $overlap) * $length)))
-                $per-unit-duration =  $duration * $unit-fraction * (1 - $overlap)
-                animation delayedrotate $duration ease-out ((i - 1) * $per-unit-duration) infinite
+            for i in 1..$length
+                &:nth-child({i})
+                    $unit-fraction = ($fraction / ($overlap + ((1 - $overlap) * $length)))
+                    $per-unit-duration =  $duration * $unit-fraction * (1 - $overlap)
+                    animation delayedrotate $duration ease-out ((i - 1) * $per-unit-duration) infinite
