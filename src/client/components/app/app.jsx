@@ -6,6 +6,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import __style from './app.styl'
 /* eslint-enable no-unused-vars */
 import Title from '../title/title.jsx'
+import LinkBar from '../link-bar/link-bar.jsx'
 
 // FIXME: Why indent broken when using babel parser?
 /* eslint-disable react/jsx-indent */
@@ -37,6 +38,7 @@ export default class App extends React.Component {
                     })
                 }
             </ReactCSSTransitionGroup>
+            <LinkBar />
         </div>
     }
 }
