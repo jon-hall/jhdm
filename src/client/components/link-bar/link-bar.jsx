@@ -18,6 +18,10 @@ export default class LinkBar extends React.Component {
                 url: 'mailto:jon_hall@outlook.com',
                 title: 'email',
                 class: 'email-link'
+            }, {
+                url: 'https://www.linkedin.com/in/jon-hall-a4ab4986',
+                title: 'linkedin',
+                class: 'linkedin-link'
             }]
         }
     }
