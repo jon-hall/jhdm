@@ -1,0 +1,29 @@
+do-the-wave(name, count, height, width)
+    @keyframes {name}
+        0%
+            transform translateY(0)
+        $unit-fraction = 1 / (count / width)
+        $unit-percent = $unit-fraction * 100%
+        {$unit-percent / 2}
+            transform translateY(0 - height)
+        {$unit-percent}
+            transform translateY(0) translateX(height / 10)
+        100%
+            transform translateY(0)
+
+$duration = 4s
+$length = 10
+$height = 60px
+$width = 2.5
+do-the-wave('half-wave', $length, $height, $width)
+
+.half-wave
+    > .logo
+        > .logo-letter
+            display inline-block
+
+            for i in 1..$length
+                &:nth-child({i})
+                    $unit-fraction = 1 / ($length * $width)
+                    $per-unit-duration =  $duration * $unit-fraction
+                    animation half-wave $duration ease-out ((i - 1) * $per-unit-duration) infinite

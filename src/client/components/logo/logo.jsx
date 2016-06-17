@@ -10,7 +10,7 @@ export default class App extends React.Component {
     constructor() {
         super()
 
-        const animations = ['twister', 'hover-ring']
+        const animations = ['twister', 'hover-ring', 'half-wave']
         this.state = {
             animation: animations[Math.floor(animations.length * Math.random())]
         }
