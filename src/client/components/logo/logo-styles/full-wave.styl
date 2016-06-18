@@ -1,0 +1,31 @@
+do-the-full-wave(name, count, height, width)
+    @keyframes {name}
+        0%
+            transform translateY(0) translateX(0)
+        $unit-fraction = 1 / (count / width)
+        $unit-percent = $unit-fraction * 100%
+        {$unit-percent / 4}
+            transform translateY(0 - height) translateX(height / 10)
+        {3 * $unit-percent / 4}
+            transform translateY(height) translateX(-(height / 10))
+        {$unit-percent}
+            transform translateY(0) translateX(0)
+        100%
+            transform translateY(0) translateX(0)
+
+$duration = 4s
+$length = 10
+$height = 60px
+$width = 2.5
+do-the-full-wave('full-wave', $length, $height, $width)
+
+.full-wave
+    > .logo
+        > .logo-letter
+            display inline-block
+
+            for i in 1..$length
+                &:nth-child({i})
+                    $unit-fraction = 1 / ($length * $width)
+                    $per-unit-duration =  $duration * $unit-fraction
+                    animation full-wave $duration ease-out ((i - 1) * $per-unit-duration) infinite
