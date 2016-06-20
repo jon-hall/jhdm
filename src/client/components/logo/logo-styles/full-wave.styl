@@ -4,12 +4,12 @@ do-the-full-wave(name, count, height, width)
             transform translateY(0) translateX(0)
         $unit-fraction = 1 / (count / width)
         $unit-percent = $unit-fraction * 100%
-        {$unit-percent / 4}
+        {$unit-percent * 1 / 4}
             transform translateY(0 - height) translateX(height / 10)
-        {3 * $unit-percent / 4}
-            transform translateY(height) translateX(-(height / 10))
         {$unit-percent}
             transform translateY(0) translateX(0)
+        {$unit-percent * 3 / 4}
+            transform translateY(height) translateX(-(height / 10))
         100%
             transform translateY(0) translateX(0)
 
