@@ -14,7 +14,8 @@
     "dev:webpack": "webpack-dev-server --progress --profile --colors --hot",
     "babel-node": "babel-node --presets stage-0",
     "dev:server": "nodemon --exec npm run babel-node -- src/server/index.es6",
-    "dev:jade": "jade src/client -w -P -o dist/client"
+    "dev:jade": "jade src/client -w -P -o dist/client",
+    "start": "node dist/server/index.js"
   },
   "repository": {
     "type": "git",
