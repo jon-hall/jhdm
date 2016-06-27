@@ -4,11 +4,11 @@ const path = require('path'),
     webpack = require('webpack')
 
 module.exports = {
-    entry: [
-    'webpack-dev-server/client?http://0.0.0.0:8080',
-    'webpack/hot/only-dev-server',
-    './src/client/index.jsx'
-  ],
+    entry:  (process.env.NODE_ENV === 'production'
+        ? [] : [
+            'webpack-dev-server/client?http://0.0.0.0:8080',
+            'webpack/hot/only-dev-server'
+        ]).concat(['./src/client/index.jsx']),
     devtool: process.env.WEBPACK_DEVTOOL || 'source-map',
     output: {
         path: path.join(__dirname, 'dist/client'),
