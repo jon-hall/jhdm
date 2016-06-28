@@ -54,6 +54,7 @@
     "file-loader": "0.8.4",
     "jade-cli": "^0.1.1",
     "json-loader": "^0.5.4",
+    "lodash": "^4.13.1",
     "nib": "^1.1.0",
     "node-libs-browser": "0.5.3",
     "nodemon": "^1.8.1",
