@@ -3,6 +3,6 @@ const _ = require('lodash');
 
 module.exports = _.merge({}, require('./_base.config.js'), {
     entry: [
-        './src/client/scripts/index.jsx'
+        './src/client/index.jsx'
     ]
 });

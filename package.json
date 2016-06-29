@@ -7,11 +7,11 @@
   "scripts": {
     "build": "concurrent \"npm run build:webpack\" \"npm run build:server\" \"npm run build:jade\"",
     "build:server": "babel src/server -d dist/server/ --source-maps",
-    "build:webpack": "SET NODE_ENV=production&& webpack --progress --profile --colors",
+    "build:webpack": "SET NODE_ENV=production&& webpack --config ./config/webpack/prod.config.js --progress --profile --colors",
     "build:jade": "SET NODE_ENV=production&& jade src/client -P -o dist/client",
     "dev": "concurrent \"npm run dev:webpack\" \"npm run dev:server\" \"npm run dev:jade\" \"npm run opn\"",
     "opn": "opn http://localhost:3000",
-    "dev:webpack": "webpack-dev-server --progress --profile --colors --hot",
+    "dev:webpack": "webpack-dev-server --config ./config/webpack/dev.config.js --progress --profile --colors --hot",
     "babel-node": "babel-node --presets stage-0",
     "dev:server": "nodemon --exec npm run babel-node -- src/server/index.es6",
     "dev:jade": "jade src/client -w -P -o dist/client",

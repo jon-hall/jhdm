@@ -6,7 +6,7 @@ const path = require('path'),
 module.exports = {
     devtool: process.env.WEBPACK_DEVTOOL || 'source-map',
     output: {
-        path: path.join(__dirname, 'dist/client'),
+        path: path.join(__dirname, '../../dist/client'),
         filename: 'bundle.js'
     },
     resolve: {
@@ -63,12 +63,6 @@ module.exports = {
             }
 
         ]
-    },
-    devServer: {
-        contentBase: "./dist/client",
-        noInfo: true,
-        hot: true,
-        inline: true
     },
     plugins: [
         new webpack.NoErrorsPlugin()
