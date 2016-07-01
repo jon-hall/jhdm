@@ -1,8 +1,16 @@
 'use strict';
-const _ = require('lodash');
+const webpack = require('webpack'),
+    _ = require('lodash');
 
 module.exports = _.merge({}, require('./_base.config.js'), {
     entry: [
         './src/client/index.jsx'
+    ],
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
     ]
 });
