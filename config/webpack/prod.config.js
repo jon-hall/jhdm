@@ -11,6 +11,8 @@ module.exports = _.merge({}, require('./_base.config.js'), {
             compress: {
                 warnings: false
             }
-        })
+        }),
+        new webpack.optimize.OccurrenceOrderPlugin(true),
+        new webpack.optimize.DedupePlugin()
     ]
 });
